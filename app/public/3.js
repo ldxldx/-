@@ -4,5 +4,19 @@ document.body.appendChild(iframe)
 
 window.onhashchange = function () {
   // 小练习，做个工具方法，取出query的值
-  console.log(location.hash)
+  var query = getQuery(location.hash)
+  console.log(query)
+
+}
+
+function getQuery(locationHash) {
+  var hash = decodeURIComponent(locationHash)
+  var queryStr = hash.split('#')[1];
+  var queryArr = queryStr.split('&')
+  var query = {};
+  queryArr.forEach(function (val) {
+    var keyValArr = val.split('=');
+    query[keyValArr[0]] = keyValArr[1];
+  })
+  return query;
 }

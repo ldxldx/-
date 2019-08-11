@@ -4,6 +4,6 @@ xhr.onreadystatechange = function () {
     console.log(JSON.parse(xhr.responseText).msg)
   }
 }
-// xhr.withCredentials = true
-xhr.open('GET', 'http://x.localhost.com:7001/cros')
+xhr.withCredentials = true;
+xhr.open('GET', 'http://x.localhost.com:8080/cros')
 xhr.send(null)
